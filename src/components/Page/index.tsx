@@ -5,21 +5,36 @@ import DefaltOverlayContent from "../DefaltOverlayContent";
 
 import {Container} from './styles'
 
+/*Criação do array para seleção de cada modelo com map definido no item ModelSection*/
 const Page: React.FC = ()=>{
     return(
         <Container>
             <ModelsWrapper>
                 <div>
-                    <ModelSection 
-                        modelName='modelone'
+                    {[
+                        'Model One',
+                        'Model Two',
+                        'Model Three',
+                        'Model Four',
+                        'Model Five',
+                        'Model Six',
+                        'Model Seve',
+
+                    ].map(modelName =>(
+                        <ModelSection 
+                        key={modelName}
+                        className='colored'
+                        modelName={modelName}
                         overLayNode={
                             <DefaltOverlayContent 
-                            label='model one'
+                            label={modelName}
                             description='order online for delivery'
                             />
 
                         }                    
                     />
+                    ))}
+                    
                     
                 </div>
             </ModelsWrapper>
